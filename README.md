@@ -365,70 +365,67 @@ Tavily Search
 
 ## Login
 
-```md
-![Login](./client/Screenshots/Login_Page.PNG)
+![Login](client/Screenshots/Login_Page.PNG)
+
+---
 
 ## Register
 
-```md
-![Register](./client/Screenshots/Register_Page.PNG)
-```
+![Register](client/Screenshots/Register_Page.PNG)
+
 ---
 
 ## Mission Control Dashboard
 
-```md
-![Mission Control](./client/Screenshots/Mission_Control_Page.PNG)
-```
+![Mission Control](client/Screenshots/Mission_Control_Page.PNG)
+
+---
 
 ## Career Intelligence Workspace
 
-```md
-![Career Intelligence](./client/Screenshots/Carrer_Intelligence_Page.PNG)
-```
+![Career Intelligence](client/Screenshots/Carrer_Intelligence_Page.PNG)
+
+---
 
 ## Resume Analysis
 
-```md
-![Resume Analysis](./client/Screenshots/Career_Intelligence_Resume_Analysis_Page.PNG)
-```
+![Resume Analysis](client/Screenshots/Career_Intelligence_Resume_Analysis_Page.PNG)
+
+---
 
 ## Resume Analysis Results
 
-```md
-![Analysis Results](./client/Screenshots/Career_Intelligence_Resume_Analyzed_Page.PNG)
-```
+![Analysis Results](client/Screenshots/Career_Intelligence_Resume_Analyze_Page.PNG)
 
-## Application Dossier 
+---
 
-```md
-![Application Dossier](./client/Screenshots/Application_Dossier_Page.PNG)
-```
+## Application Dossier
 
+![Application Dossier](client/Screenshots/Application_Dossier_Page.PNG)
 
-## Application Dossier Resume and Cover Letter
+---
 
-```md
-![Application Dossier Resume & Cover Letter](./client/Screenshots/Application_Dossier_Resume_Cover.PNG)
-```
+## Application Dossier — Resume & Cover Letter
+
+![Application Dossier Resume Cover](client/Screenshots/Application_Dossier_Resume_Cover_Page.PNG)
+
+---
 
 ## AI Research Agent
 
-```md
-![Agent Searching](./client/Screenshots/Agent_Searching.PNG)
-```
+![Agent Searching](client/Screenshots/Agent%20Searching.PNG)
+
+---
 
 ## Company Intelligence
 
-```md
-![Company Intel](./client/Screenshots/Company_Intel.PNG)
-```
+![Company Intel](client/Screenshots/Company_Intel.PNG)
+
+---
 
 ## Interview Preparation
 
-```md
-![Interview Questions](./client/Screenshots/Interview_Questions.PNG)
-```
+![Interview Questions](client/Screenshots/Interview%20Questions.PNG)```
 
 
 # 🔐 Security Considerations
