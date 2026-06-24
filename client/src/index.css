@@ -1,0 +1,493 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════════════════════════
+   APPLYPILOT DESIGN SYSTEM — FULL REPLACEMENT index.css
+   Copy this entire file and replace your current index.css
+   ════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --void: #0B0C0E;
+    --surface: #131517;
+    --surface-raised: #1A1D20;
+    --surface-overlay: #202427;
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.12);
+    --line-focus: rgba(45, 212, 191, 0.4);
+
+    --ink: #E8EAED;
+    --ink-dim: #9CA3AF;
+    --ink-faint: #5B6168;
+
+    --teal: #2DD4BF;
+    --teal-dim: rgba(45, 212, 191, 0.12);
+    --teal-line: rgba(45, 212, 191, 0.25);
+
+    --emerald: #34D399;
+    --emerald-dim: rgba(52, 211, 153, 0.1);
+    --amber: #F59E0B;
+    --amber-dim: rgba(245, 158, 11, 0.1);
+    --red: #F87171;
+    --red-dim: rgba(248, 113, 113, 0.1);
+
+    --font-display: 'Fraunces', 'Sora', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-data: 'JetBrains Mono', monospace;
+
+    --text-display: clamp(32px, 4vw, 52px);
+    --text-headline: 24px;
+    --text-subhead: 17px;
+    --text-body: 14px;
+    --text-caption: 12px;
+    --text-micro: 11px;
+
+    --duration-reveal: 420ms;
+    --duration-transition: 220ms;
+    --duration-ambient: 2400ms;
+    --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --panel-pad: 24px;
+    --panel-radius: 10px;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #0B0C0E;
+  color: #E8EAED;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+body {
+  background-color: #0B0C0E;
+  min-height: 100vh;
+}
+
+#root {
+  background-color: #0B0C0E;
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* ── Dot grid background texture ── */
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Teal ambient glow at top ── */
+#root::after {
+  content: '';
+  position: fixed;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 360px;
+  background: radial-gradient(ellipse, rgba(45,212,191,0.06) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#root > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ════════════ SCROLLBAR ════════════ */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* ════════════ PANEL ════════════ */
+.panel {
+  background: #131517;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.panel-raised {
+  background: #1A1D20;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+/* Hero/focus panel — center column, slightly elevated */
+.panel-focus {
+  background: #1A1D20;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow:
+    0 0 0 1px rgba(45,212,191,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Login card */
+.login-card {
+  background: #131517;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow:
+    0 0 0 1px rgba(45,212,191,0.06),
+    0 24px 56px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Strategist center panel */
+.strategist-panel {
+  background: #1A1D20;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow:
+    0 0 28px rgba(45,212,191,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ════════════ PANEL LABEL ════════════ */
+.panel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #5B6168;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* ════════════ STATUS DOT ════════════ */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-dot--live {
+  animation: status-pulse 2400ms cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ════════════ REVEAL ANIMATIONS ════════════ */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal {
+  animation: reveal-up 420ms cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.reveal-fade {
+  animation: reveal-in 420ms cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* Staggered list reveal */
+.reveal-stagger > * {
+  opacity: 0;
+  animation: reveal-up 420ms cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.reveal-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.reveal-stagger > *:nth-child(2) { animation-delay: 60ms; }
+.reveal-stagger > *:nth-child(3) { animation-delay: 120ms; }
+.reveal-stagger > *:nth-child(4) { animation-delay: 180ms; }
+.reveal-stagger > *:nth-child(5) { animation-delay: 240ms; }
+
+/* ════════════ FORM FIELDS ════════════ */
+.field {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 11px 14px;
+  color: #E8EAED;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 220ms cubic-bezier(0.4,0,0.2,1),
+              background 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.field::placeholder { color: #5B6168; }
+.field:focus {
+  border-color: rgba(45,212,191,0.4);
+  background: rgba(45,212,191,0.06);
+}
+
+/* ════════════ BUTTONS ════════════ */
+.action-primary {
+  background: #2DD4BF;
+  color: #06201C;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(45,212,191,0.22);
+  transition: background 220ms cubic-bezier(0.4,0,0.2,1),
+              box-shadow 220ms cubic-bezier(0.4,0,0.2,1),
+              transform 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.action-primary:hover {
+  background: #5EEAD4;
+  box-shadow: 0 0 28px rgba(45,212,191,0.35);
+}
+.action-primary:active { transform: scale(0.98); }
+.action-primary:disabled {
+  background: #1A1D20;
+  color: #5B6168;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.action-secondary {
+  background: transparent;
+  color: #9CA3AF;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 220ms cubic-bezier(0.4,0,0.2,1),
+              border-color 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.action-secondary:hover {
+  color: #E8EAED;
+  border-color: rgba(45,212,191,0.4);
+}
+
+/* ════════════ METRIC CARDS (Pipeline stats) ════════════ */
+.metric-card {
+  background: #1A1D20;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 16px 20px;
+  transition: border-color 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.metric-card:hover { border-color: rgba(255,255,255,0.16); }
+
+.stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+  animation: reveal-up 420ms cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* ════════════ SCORE DISPLAY ════════════ */
+.score-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 28px currentColor;
+  animation: reveal-up 420ms cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* ════════════ APP ROW HOVER ════════════ */
+.app-row {
+  position: relative;
+  transition: background 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.app-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: #2DD4BF;
+  opacity: 0;
+  transition: opacity 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.app-row:hover::before { opacity: 1; }
+.app-row:hover { background: #1A1D20 !important; }
+
+/* ════════════ STAGE HEADER ACCENT ════════════ */
+.stage-header-accent {
+  position: relative;
+  padding-left: 20px !important;
+}
+.stage-header-accent::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent-color, #2DD4BF);
+}
+
+/* ════════════ NAVBAR ════════════ */
+nav {
+  background: rgba(11,12,14,0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   APPLYPILOT — TARGETED VISUAL FIXES
+   Add these lines to the BOTTOM of your existing index.css only.
+   Do NOT replace anything. Just append.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── FIX 1: Make panel borders actually visible ──
+   Your current --line is too faint at 0.06 opacity.
+   This overrides .panel to have a crisper border. */
+.panel {
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ── FIX 2: Teal button glow ──
+   Makes the primary CTA feel alive, not flat. */
+.action-primary {
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.3),
+              0 0 20px rgba(45, 212, 191, 0.18) !important;
+  transition: box-shadow 220ms ease, background 220ms ease, transform 150ms ease !important;
+}
+.action-primary:hover {
+  background: #5EEAD4 !important;
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.5),
+              0 0 32px rgba(45, 212, 191, 0.28) !important;
+}
+.action-primary:disabled {
+  box-shadow: none !important;
+}
+
+/* ── FIX 3: Pipeline stat numbers — individual elevated cards ──
+   Wrap each stat in .metric-card in Pipeline.jsx (see note below).
+   This styles them. */
+.metric-card {
+  background: #1A1D20;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 200ms ease;
+}
+.metric-card:hover {
+  border-color: rgba(45, 212, 191, 0.25);
+}
+
+/* ── FIX 4: Active nav pill — stronger contrast ──
+   Current active state barely differs from inactive. */
+nav a[aria-current="page"],
+nav a.active-nav {
+  color: #E8EAED !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* ── FIX 5: Score/health number — subtle text glow ──
+   The "56" health gauge and "85" score look orphaned.
+   This makes big data numbers feel like readings. */
+.score-display,
+[style*="font-family: var(--font-data)"][style*="font-size: 28px"],
+[style*="font-family: var(--font-data)"][style*="fontSize: '28px'"] {
+  text-shadow: 0 0 20px currentColor;
+}
+
+/* ── FIX 6: App row hover — left teal flash ──
+   Pipeline rows feel static on hover. */
+.app-row {
+  position: relative !important;
+  transition: background 180ms ease !important;
+}
+.app-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: #2DD4BF;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  border-radius: 0;
+}
+.app-row:hover::before { opacity: 1; }
+.app-row:hover { background: rgba(255, 255, 255, 0.03) !important; }
+
+/* ── FIX 7: Staggered reveal — lists animate in on load ── */
+.reveal-stagger > * {
+  opacity: 0;
+  animation: reveal-up var(--duration-reveal, 420ms) var(--ease-reveal, cubic-bezier(0.16,1,0.3,1)) forwards;
+}
+.reveal-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.reveal-stagger > *:nth-child(2) { animation-delay: 55ms; }
+.reveal-stagger > *:nth-child(3) { animation-delay: 110ms; }
+.reveal-stagger > *:nth-child(4) { animation-delay: 165ms; }
+.reveal-stagger > *:nth-child(5) { animation-delay: 220ms; }
+
+/* ── FIX 8: Focus panel (Mission Control center) distinction ──
+   The Active Focus panel should feel like the primary surface. */
+.panel-focus {
+  background: #1A1D20 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.08),
+              0 4px 24px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ── FIX 9: Strategist panel distinction ──
+   Center column on Career Intelligence page. */
+.strategist-panel {
+  background: #1A1D20 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 0 32px rgba(45, 212, 191, 0.06),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ── FIX 10: Login card depth ── */
+.login-card {
+  background: #131517 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 0 0 1px rgba(45, 212, 191, 0.06),
+    0 32px 64px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ── FIX 11: Stage group header accent bar ── */
+.stage-header-accent {
+  position: relative;
+  padding-left: 20px !important;
+}
+.stage-header-accent::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent-color, #2DD4BF);
+  border-radius: 0 2px 2px 0;
+}
