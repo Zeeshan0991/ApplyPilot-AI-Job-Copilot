@@ -521,7 +521,7 @@ TAVILY_API_KEY=
 
 # 👨‍💻 Author
 
-### Tehfeez Sadik
+### Muhammad Zeeshan Khaliq
 
 AI Engineer • Full Stack Developer • MERN Stack Developer
 
