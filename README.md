@@ -395,7 +395,7 @@ Tavily Search
 
 ## Resume Analysis Results
 
-![Analysis Results](client/Screenshots/Career_Intelligence_Resume_Analyze_Page.PNG)
+![Analysis Results](client/Screenshots/Career_Intelligence_Resume_Analyzed.PNG)
 
 ---
 
@@ -407,13 +407,13 @@ Tavily Search
 
 ## Application Dossier — Resume & Cover Letter
 
-![Application Dossier Resume Cover](client/Screenshots/Application_Dossier_Resume_Cover_Page.PNG)
+![Application Dossier Resume Cover](client/Screenshots/Application_Dossier_Resume_Cover.PNG)
 
 ---
 
 ## AI Research Agent
 
-![Agent Searching](client/Screenshots/Agent%20Searching.PNG)
+![Agent Searching](client/Screenshots/Agent_Searching.PNG)
 
 ---
 
@@ -425,7 +425,9 @@ Tavily Search
 
 ## Interview Preparation
 
-![Interview Questions](client/Screenshots/Interview%20Questions.PNG)```
+![Interview Questions](client/Screenshots/Interview_Questions.PNG)
+
+```
 
 
 # 🔐 Security Considerations
